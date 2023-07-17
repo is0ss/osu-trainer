@@ -73,7 +73,7 @@ namespace osu_trainer
             dumbLabels = new List<Label>
             {
                 hplabel, cslabel, arlabel, odlabel,
-                BpmMultiplierLabel, OriginalBpmLabel, NewBpmLabel
+                BpmMultiplierLabel, OriginalBpmLabel, NewBpmLabel, ComboLabel
             };
             diffDisplays = new List<TextBox>
             {
@@ -85,7 +85,7 @@ namespace osu_trainer
             };
             checkControls = new List<OsuCheckBox>
             {
-                NoSpinnersCheck, HRCheck, ScaleARCheck, ScaleODCheck, ChangePitchCheck, highQualityMp3Check
+                NoSpinnersCheck, HRCheck, ScaleARCheck, ScaleODCheck, ChangePitchCheck, highQualityMp3Check, FLTrainCheck
             };
 
             ApplyFonts();
@@ -263,6 +263,9 @@ namespace osu_trainer
                     NewBpmTextBox.BackColor = Colors.Disabled;
                     OriginalBpmTextBox.Enabled = false;
                     OriginalBpmTextBox.BackColor = Colors.Disabled;
+                    ComboRangeTextBox.Visible = false;
+                    ComboTextBox.Enabled = false;
+                    ComboTextBox.BackColor = Colors.Disabled;
                     break;
 
                 case EditorState.READY:
@@ -271,6 +274,8 @@ namespace osu_trainer
                     OriginalBpmTextBox.BackColor = Colors.ReadOnlyBg;
                     NewBpmTextBox.Enabled = true;
                     NewBpmTextBox.BackColor = Colors.TextBoxBg;
+                    ComboTextBox.Enabled = true;
+                    ComboTextBox.BackColor = Colors.TextBoxBg;
                     break;
             }
         }
@@ -985,16 +990,16 @@ namespace osu_trainer
             if (!profilesVisible)
             {
                 // not ready layout
-                middlePanel.Height = 110;
-                BottomPanel.Height = 111;
-                Height = 493 + (extrasPanel.Visible ? extrasPanel.Height : 0);
+                middlePanel.Height = 150;
+                BottomPanel.Height = 200;
+                Height = 510 + (extrasPanel.Visible ? extrasPanel.Height : 0);
             }
             else
             {
                 // ready layout
-                middlePanel.Height = 178;
-                BottomPanel.Height = 111 - 33;
-                Height = 531 + (extrasPanel.Visible ? extrasPanel.Height : 0);
+                middlePanel.Height = 210;
+                BottomPanel.Height = 200 - 33;
+                Height = 570 + (extrasPanel.Visible ? extrasPanel.Height : 0);
             }
         }
         private void showExtrasButton_Click(object sender, EventArgs e)
@@ -1077,6 +1082,11 @@ namespace osu_trainer
 
         private void spectrogramButton_Click(object sender, EventArgs e)
         {
+        }
+
+        private void extrasPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

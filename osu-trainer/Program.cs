@@ -14,6 +14,8 @@ namespace osu_trainer
         [STAThread]
         public static void Main()
         {
+            // Skip Updater.
+            /*
             try
             {
                 var updaterProc = Process.Start("updater.exe");
@@ -25,7 +27,7 @@ namespace osu_trainer
                 Console.WriteLine("Failed to update lol");
                 Console.WriteLine(e);
             }
-
+            */
             AddFont(FontCollection, Properties.Resources.Comfortaa_Bold);
 
             Application.CurrentCulture = new CultureInfo("en-US", false);

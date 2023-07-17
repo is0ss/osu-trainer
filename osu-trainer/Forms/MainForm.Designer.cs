@@ -1,4 +1,5 @@
 ﻿using osu_trainer.Controls;
+using osu_trainer.Layer;
 
 namespace osu_trainer
 {
@@ -8,6 +9,7 @@ namespace osu_trainer
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        private EventHandler eventHandler;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -47,16 +49,20 @@ namespace osu_trainer
             this.BpmSlider = new osu_trainer.OptionSlider();
             this.HRCheck = new osu_trainer.Controls.OsuCheckBox();
             this.ScaleODCheck = new osu_trainer.Controls.OsuCheckBox();
+            this.FLTrainCheck = new osu_trainer.Controls.OsuCheckBox();
             this.ScaleARCheck = new osu_trainer.Controls.OsuCheckBox();
             this.BpmMultiplierTextBox = new System.Windows.Forms.TextBox();
             this.NewBpmTextBox = new osu_trainer.Controls.ScrollableTextBox();
+            this.ComboTextBox = new osu_trainer.Controls.ScrollableTextBox();
             this.NewBpmRangeTextBox = new System.Windows.Forms.TextBox();
+            this.ComboRangeTextBox = new System.Windows.Forms.TextBox();
             this.OriginalBpmRangeTextBox = new System.Windows.Forms.TextBox();
             this.OriginalBpmTextBox = new System.Windows.Forms.TextBox();
             this.renameButton4 = new System.Windows.Forms.Button();
             this.OriginalBpmLabel = new osu_trainer.Controls.AntiAliasedLabel();
             this.renameButton3 = new System.Windows.Forms.Button();
             this.NewBpmLabel = new osu_trainer.Controls.AntiAliasedLabel();
+            this.ComboLabel = new osu_trainer.Controls.AntiAliasedLabel();
             this.renameButton2 = new System.Windows.Forms.Button();
             this.BpmMultiplierLabel = new osu_trainer.Controls.AntiAliasedLabel();
             this.renameButton1 = new System.Windows.Forms.Button();
@@ -126,16 +132,20 @@ namespace osu_trainer
             this.middlePanel.Controls.Add(this.BpmSlider);
             this.middlePanel.Controls.Add(this.HRCheck);
             this.middlePanel.Controls.Add(this.ScaleODCheck);
+            this.middlePanel.Controls.Add(this.FLTrainCheck);
             this.middlePanel.Controls.Add(this.ScaleARCheck);
             this.middlePanel.Controls.Add(this.BpmMultiplierTextBox);
             this.middlePanel.Controls.Add(this.NewBpmTextBox);
+            this.middlePanel.Controls.Add(this.ComboTextBox);
             this.middlePanel.Controls.Add(this.NewBpmRangeTextBox);
+            this.middlePanel.Controls.Add(this.ComboRangeTextBox);
             this.middlePanel.Controls.Add(this.OriginalBpmRangeTextBox);
             this.middlePanel.Controls.Add(this.OriginalBpmTextBox);
             this.middlePanel.Controls.Add(this.renameButton4);
             this.middlePanel.Controls.Add(this.OriginalBpmLabel);
             this.middlePanel.Controls.Add(this.renameButton3);
             this.middlePanel.Controls.Add(this.NewBpmLabel);
+            this.middlePanel.Controls.Add(this.ComboLabel);
             this.middlePanel.Controls.Add(this.renameButton2);
             this.middlePanel.Controls.Add(this.BpmMultiplierLabel);
             this.middlePanel.Controls.Add(this.renameButton1);
@@ -143,7 +153,7 @@ namespace osu_trainer
             this.middlePanel.Location = new System.Drawing.Point(0, 272);
             this.middlePanel.Name = "middlePanel";
             this.middlePanel.Padding = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.middlePanel.Size = new System.Drawing.Size(427, 179);
+            this.middlePanel.Size = new System.Drawing.Size(427, 222);
             this.middlePanel.TabIndex = 7;
             this.middlePanel.Click += new System.EventHandler(this.Unfocus);
             // 
@@ -155,7 +165,7 @@ namespace osu_trainer
             this.showExtrasButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.showExtrasButton.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.showExtrasButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
-            this.showExtrasButton.Location = new System.Drawing.Point(0, 159);
+            this.showExtrasButton.Location = new System.Drawing.Point(0, 202);
             this.showExtrasButton.Margin = new System.Windows.Forms.Padding(0);
             this.showExtrasButton.Name = "showExtrasButton";
             this.showExtrasButton.Size = new System.Drawing.Size(427, 20);
@@ -170,7 +180,7 @@ namespace osu_trainer
             this.profileButton4.Color = System.Drawing.Color.MediumPurple;
             this.profileButton4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton4.ForeColor = System.Drawing.Color.White;
-            this.profileButton4.Location = new System.Drawing.Point(316, 92);
+            this.profileButton4.Location = new System.Drawing.Point(316, 125);
             this.profileButton4.Name = "profileButton4";
             this.profileButton4.Progress = 0F;
             this.profileButton4.ProgressColor = System.Drawing.Color.Transparent;
@@ -190,7 +200,7 @@ namespace osu_trainer
             this.profileButton3.Color = System.Drawing.Color.MediumPurple;
             this.profileButton3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton3.ForeColor = System.Drawing.Color.White;
-            this.profileButton3.Location = new System.Drawing.Point(214, 92);
+            this.profileButton3.Location = new System.Drawing.Point(214, 125);
             this.profileButton3.Name = "profileButton3";
             this.profileButton3.Progress = 0F;
             this.profileButton3.ProgressColor = System.Drawing.Color.Transparent;
@@ -210,7 +220,7 @@ namespace osu_trainer
             this.profileButton2.Color = System.Drawing.Color.MediumPurple;
             this.profileButton2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton2.ForeColor = System.Drawing.Color.White;
-            this.profileButton2.Location = new System.Drawing.Point(112, 92);
+            this.profileButton2.Location = new System.Drawing.Point(112, 125);
             this.profileButton2.Name = "profileButton2";
             this.profileButton2.Progress = 0F;
             this.profileButton2.ProgressColor = System.Drawing.Color.Transparent;
@@ -230,7 +240,7 @@ namespace osu_trainer
             this.saveButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.saveButton4.Location = new System.Drawing.Point(315, 115);
+            this.saveButton4.Location = new System.Drawing.Point(315, 148);
             this.saveButton4.Name = "saveButton4";
             this.saveButton4.Size = new System.Drawing.Size(96, 20);
             this.saveButton4.TabIndex = 25;
@@ -244,7 +254,7 @@ namespace osu_trainer
             this.profileButton1.Color = System.Drawing.Color.MediumPurple;
             this.profileButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.profileButton1.ForeColor = System.Drawing.Color.White;
-            this.profileButton1.Location = new System.Drawing.Point(10, 92);
+            this.profileButton1.Location = new System.Drawing.Point(10, 125);
             this.profileButton1.Name = "profileButton1";
             this.profileButton1.Progress = 0F;
             this.profileButton1.ProgressColor = System.Drawing.Color.Transparent;
@@ -264,7 +274,7 @@ namespace osu_trainer
             this.saveButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.saveButton3.Location = new System.Drawing.Point(214, 115);
+            this.saveButton3.Location = new System.Drawing.Point(214, 148);
             this.saveButton3.Name = "saveButton3";
             this.saveButton3.Size = new System.Drawing.Size(96, 20);
             this.saveButton3.TabIndex = 25;
@@ -278,7 +288,7 @@ namespace osu_trainer
             this.saveButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.saveButton2.Location = new System.Drawing.Point(112, 115);
+            this.saveButton2.Location = new System.Drawing.Point(112, 148);
             this.saveButton2.Name = "saveButton2";
             this.saveButton2.Size = new System.Drawing.Size(96, 20);
             this.saveButton2.TabIndex = 25;
@@ -292,7 +302,7 @@ namespace osu_trainer
             this.saveButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.saveButton1.Location = new System.Drawing.Point(10, 115);
+            this.saveButton1.Location = new System.Drawing.Point(10, 148);
             this.saveButton1.Name = "saveButton1";
             this.saveButton1.Size = new System.Drawing.Size(96, 20);
             this.saveButton1.TabIndex = 25;
@@ -374,6 +384,18 @@ namespace osu_trainer
             this.ScaleODCheck.UseVisualStyleBackColor = true;
             this.ScaleODCheck.CheckedChanged += new System.EventHandler(this.ScaleODCheck_CheckedChanged);
             // 
+            // FLTrainCheck
+            // 
+            this.FLTrainCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FLTrainCheck.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(134)))), ((int)(((byte)(144)))));
+            this.FLTrainCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            this.FLTrainCheck.Location = new System.Drawing.Point(297, 89);
+            this.FLTrainCheck.Name = "FLTrainCheck";
+            this.FLTrainCheck.Size = new System.Drawing.Size(120, 24);
+            this.FLTrainCheck.TabIndex = 20;
+            this.FLTrainCheck.Text = "FL Training";
+            this.FLTrainCheck.UseVisualStyleBackColor = true;
+            // 
             // ScaleARCheck
             // 
             this.ScaleARCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -419,6 +441,19 @@ namespace osu_trainer
             this.NewBpmTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NewBpmTextBox_KeyPress);
             this.NewBpmTextBox.Leave += new System.EventHandler(this.NewBpmTextBox_Leave);
             // 
+            // ComboTextBox
+            // 
+            this.ComboTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(16)))), ((int)(((byte)(25)))));
+            this.ComboTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ComboTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ComboTextBox.Location = new System.Drawing.Point(89, 92);
+            this.ComboTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.ComboTextBox.Name = "ComboTextBox";
+            this.ComboTextBox.Size = new System.Drawing.Size(42, 18);
+            this.ComboTextBox.TabIndex = 10;
+            this.ComboTextBox.Text = "200";
+            this.ComboTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // NewBpmRangeTextBox
             // 
             this.NewBpmRangeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(35)))), ((int)(((byte)(53)))));
@@ -432,6 +467,20 @@ namespace osu_trainer
             this.NewBpmRangeTextBox.Size = new System.Drawing.Size(85, 18);
             this.NewBpmRangeTextBox.TabIndex = 10;
             this.NewBpmRangeTextBox.Text = "(180 - 210)";
+            // 
+            // ComboRangeTextBox
+            // 
+            this.ComboRangeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(35)))), ((int)(((byte)(53)))));
+            this.ComboRangeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ComboRangeTextBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboRangeTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
+            this.ComboRangeTextBox.Location = new System.Drawing.Point(163, 80);
+            this.ComboRangeTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.ComboRangeTextBox.Name = "ComboRangeTextBox";
+            this.ComboRangeTextBox.ReadOnly = true;
+            this.ComboRangeTextBox.Size = new System.Drawing.Size(85, 18);
+            this.ComboRangeTextBox.TabIndex = 10;
+            this.ComboRangeTextBox.Text = "(180 - 210)";
             // 
             // OriginalBpmRangeTextBox
             // 
@@ -469,7 +518,7 @@ namespace osu_trainer
             this.renameButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.renameButton4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renameButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.renameButton4.Location = new System.Drawing.Point(315, 132);
+            this.renameButton4.Location = new System.Drawing.Point(315, 165);
             this.renameButton4.Name = "renameButton4";
             this.renameButton4.Size = new System.Drawing.Size(96, 20);
             this.renameButton4.TabIndex = 25;
@@ -496,7 +545,7 @@ namespace osu_trainer
             this.renameButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.renameButton3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renameButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.renameButton3.Location = new System.Drawing.Point(214, 132);
+            this.renameButton3.Location = new System.Drawing.Point(214, 165);
             this.renameButton3.Name = "renameButton3";
             this.renameButton3.Size = new System.Drawing.Size(96, 20);
             this.renameButton3.TabIndex = 25;
@@ -517,13 +566,26 @@ namespace osu_trainer
             this.NewBpmLabel.Text = "New BPM";
             this.NewBpmLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ComboLabel
+            // 
+            this.ComboLabel.AutoSize = true;
+            this.ComboLabel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(154)))), ((int)(((byte)(233)))));
+            this.ComboLabel.Location = new System.Drawing.Point(30, 92);
+            this.ComboLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.ComboLabel.Name = "ComboLabel";
+            this.ComboLabel.Size = new System.Drawing.Size(52, 17);
+            this.ComboLabel.TabIndex = 9;
+            this.ComboLabel.Text = "Combo";
+            this.ComboLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // renameButton2
             // 
             this.renameButton2.FlatAppearance.BorderSize = 0;
             this.renameButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.renameButton2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renameButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.renameButton2.Location = new System.Drawing.Point(112, 132);
+            this.renameButton2.Location = new System.Drawing.Point(112, 165);
             this.renameButton2.Name = "renameButton2";
             this.renameButton2.Size = new System.Drawing.Size(96, 20);
             this.renameButton2.TabIndex = 25;
@@ -550,7 +612,7 @@ namespace osu_trainer
             this.renameButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.renameButton1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.renameButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(134)))));
-            this.renameButton1.Location = new System.Drawing.Point(10, 132);
+            this.renameButton1.Location = new System.Drawing.Point(10, 165);
             this.renameButton1.Name = "renameButton1";
             this.renameButton1.Size = new System.Drawing.Size(96, 20);
             this.renameButton1.TabIndex = 25;
@@ -949,7 +1011,7 @@ namespace osu_trainer
             this.BottomPanel.Controls.Add(this.GenerateMapButton);
             this.BottomPanel.Controls.Add(this.SongsFolderButton);
             this.BottomPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BottomPanel.Location = new System.Drawing.Point(0, 552);
+            this.BottomPanel.Location = new System.Drawing.Point(0, 589);
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Padding = new System.Windows.Forms.Padding(10, 5, 10, 10);
             this.BottomPanel.Size = new System.Drawing.Size(427, 111);
@@ -1126,11 +1188,12 @@ namespace osu_trainer
             this.extrasPanel.Controls.Add(this.editHotkeysButton);
             this.extrasPanel.Controls.Add(this.updatesCheck);
             this.extrasPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.extrasPanel.Location = new System.Drawing.Point(0, 451);
+            this.extrasPanel.Location = new System.Drawing.Point(0, 494);
             this.extrasPanel.Name = "extrasPanel";
             this.extrasPanel.Size = new System.Drawing.Size(427, 102);
             this.extrasPanel.TabIndex = 15;
             this.extrasPanel.Visible = false;
+            this.extrasPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.extrasPanel_Paint);
             // 
             // ChangePitchCheck
             // 
@@ -1209,7 +1272,7 @@ namespace osu_trainer
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(35)))), ((int)(((byte)(53)))));
-            this.ClientSize = new System.Drawing.Size(427, 663);
+            this.ClientSize = new System.Drawing.Size(427, 700);
             this.Controls.Add(this.extrasPanel);
             this.Controls.Add(this.middlePanel);
             this.Controls.Add(this.Middle1Panel);
@@ -1243,6 +1306,7 @@ namespace osu_trainer
         private System.Windows.Forms.Timer BeatmapUpdateTimer;
         private AntiAliasedLabel OriginalBpmLabel;
         private AntiAliasedLabel NewBpmLabel;
+        private AntiAliasedLabel ComboLabel;
         private OsuButton GenerateMapButton;
         private System.Windows.Forms.Panel BottomPanel;
         private System.Windows.Forms.Panel TopPanel;
@@ -1262,6 +1326,7 @@ namespace osu_trainer
         private System.Windows.Forms.TextBox CSDisplay;
         private OptionSlider CSSlider;
         private System.Windows.Forms.TextBox NewBpmRangeTextBox;
+        private System.Windows.Forms.TextBox ComboRangeTextBox;
         private System.Windows.Forms.TextBox OriginalBpmRangeTextBox;
         private System.Windows.Forms.TextBox OriginalBpmTextBox;
         private OsuButton ResetButton;
@@ -1269,6 +1334,7 @@ namespace osu_trainer
         private OsuCheckBox ScaleARCheck;
         private OsuCheckBox ChangePitchCheck;
         private OsuCheckBox ScaleODCheck;
+        private OsuCheckBox FLTrainCheck;
         private ToggleIconButton ODLockCheck;
         private ToggleIconButton ARLockCheck;
         private ToggleIconButton CSLockCheck;
@@ -1283,6 +1349,7 @@ namespace osu_trainer
         private OsuCheckBox HRCheck;
         private OsuButton SongsFolderButton;
         private ScrollableTextBox NewBpmTextBox;
+        private ScrollableTextBox ComboTextBox;
         private System.Windows.Forms.TextBox BpmMultiplierTextBox;
         private System.Windows.Forms.Button renameButton1;
         private System.Windows.Forms.Button saveButton1;
